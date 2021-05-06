@@ -10,7 +10,46 @@
     <title>Mars Rover Photo Display</title>
 </head>
 <body>
-    <H1>Mars Rover Photos</H1>
+    <H1>Mars Rover Photo Search</H1>
+    <p>Select a Rover name and date to display photos. Search hint: Use the data in the below table to target your search!</p>
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rover Name</th>
+          <th scope="col">Launch Date</th>
+          <th scope="col">Landing Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Max Date</th>
+          <th scope="col">Total Photos</th>
+        </tr>
+      </thead>
+      <tbody>
+         <tr>
+          <!-- <th id="name" scope="row"></th> -->
+
+         
+        <tr>
+          <!-- <th scope="row">Opportunity</th>
+          <td>7.8.2003</td>
+          <td>1.25.2004</td>
+          <td>2.13.2019</td>
+        </tr>
+        <tr>
+          <th scope="row">Curiosity</th>
+          <td>11.26.2011</td>
+          <td>8.5.2012</td>
+          <td>Still active</td>
+        </tr>
+        <tr>
+          <th scope="row">Perseverance</th>
+          <td>7.30.2020</td>
+          <td>2.18.2021</td>
+          <td>Still active</td>
+        </tr> -->
+      </tbody>
+    </table> 
+<p>Source: <a target="blank" href="https://mars.nasa.gov">https://mars.nasa.gov/mars2020/</a></p>
+
     <form class="form">
         <div class="row mb-3">
           <label for="earth-date" class="col-sm-2 col-form-label">Earth Date</label>
@@ -51,6 +90,8 @@
         </div>
         <button type="submit" class="btn btn-info">Search</button>
       </form>
+
+      
       
       <!-- Results Section -->
       <!-- <div class="results"> -->
@@ -60,7 +101,8 @@
           <button class="next">Next 10</button>
         </nav> -->
         <!--Results From Request-->
-        <section id="display">
+      
+        <section class="card-group">
           </section>
 
 

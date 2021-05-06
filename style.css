@@ -1,25 +1,43 @@
 h1 { 
     text-align: center;
     font-size: 75px;
+    color: darkred;
 }
 
+p {
+    text-align: center;
+}
 body {
-    background-image: url("assets/background2.jpg");
+    background-color: black;
     color: white;
+    margin-top: 20px;
+}
+
+.table {
+    color: white; 
+    text-align: center;
 }
 
 form {
-  
+    background-color: black;
     justify-content: center;
-    border: 1px solid black;
+    border: 1px solid white;
     margin-left: 100px;
     margin-right: 100px;
     padding: 30px;
+    color: white;
    
+}
+
+section {
+    justify-content: center;
 }
 
 img {
     width: 300px;
     height: 300px;
     padding: 30px;
+    border: 2px solid white;
+    margin: 10px;
+    background-color: gray;
 }

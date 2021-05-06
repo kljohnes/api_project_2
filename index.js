@@ -1,13 +1,52 @@
 
-const baseUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/`
+const baseUrl = `https://api.nasa.gov/mars-photos/api/v1/`
 const apiKey = "xOrJfZFoQ1hDnmbCCR3Qdj3TJUod3N7b8o1UUHtQ"
-let url;
+let searchUrl;
+let manifestUrl;
+let roverArr = ['spirit', 'opportunity', 'curiosity','perseverance']
 
 
-// const earthDate = document.querySelector('.earth-date')
-// const rover = document.querySelector()
+
+function fetchManifest () {
+    for(let i = 0; i < roverArr.length; i++){
+    manifestUrl = baseUrl + 'manifests/' + `${roverArr[i]}` + '/' + '?api_key=' + apiKey
+    fetch (manifestUrl)
+   .then (res => res.json())
+   .then (json => displayManifest(json))
+   }
+   
+}
+
+function displayManifest(json){
+const table = document.querySelector(".table")
+const tableRow = document.createElement('tr')
+const tableHead = document.createElement('th')
+const launchDate = document.createElement('td')
+const landingDate = document.createElement('td')
+const status = document.createElement('td') 
+const maxDate = document.createElement('td')
+const totalPhotos = document.createElement('td')
+tableHead.innerText = json.photo_manifest.name
+launchDate.innerText = json.photo_manifest.launch_date
+landingDate.innerText = json.photo_manifest.landing_date
+status.innerText = json.photo_manifest.status
+maxDate.innerText = json.photo_manifest.max_date
+totalPhotos.innerText = json.photo_manifest.total_photos
+tableRow.appendChild(tableHead)
+tableRow.appendChild(launchDate)
+tableRow.appendChild(landingDate)
+tableRow.appendChild(status)
+tableRow.appendChild(maxDate)
+tableRow.appendChild(totalPhotos)
+table.appendChild(tableRow)
+
+}
+
+fetchManifest()
+
+
 const searchForm = document.querySelector('form')
-const section = document.querySelector('#display')
+const section = document.querySelector('.card-group')
 
 searchForm.addEventListener('submit', submitSearch);
 function submitSearch(e) {
@@ -22,8 +61,8 @@ function fetchResults(e){
         rover = r.value}
     }
     const earthDate = document.querySelector(".form-control")
-    url = baseUrl + rover + '/' + "photos?earth_date=" + earthDate.value + "&api_key=" + apiKey
-    fetch (url)
+    searchUrl = baseUrl + 'rovers/' + rover + '/' + "photos?earth_date=" + earthDate.value + "&api_key=" + apiKey
+    fetch (searchUrl)
     
     .then (res => res.json())
    
@@ -35,13 +74,26 @@ function displayPhotos(json){
         section.removeChild(section.firstChild);
     }
     let photos = json.photos
-    for(let i = 0; i < photos.length; i++){
+    {for(let i = 0; i < photos.length; i++){
+       
     let image = document.createElement('img');
     image.src = json.photos[i].img_src;
-    section.appendChild(image);
+    section.appendChild(image)}
+    }
+}
+
+
+
+
+
+    //     else {
+    //         console.log("error")}
+        // let div = document.createElement('div');
+        // div.innerText = "No photos available for this date";
+        // section.appendChild(div)}
   
-    }
-    }
+    // }
+    // }
 
 
 
