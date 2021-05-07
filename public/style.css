@@ -1,0 +1,77 @@
+#title {
+    background-image: url("./assets/background6.jpg");
+    background-size: cover;
+}
+
+h1 { 
+    text-align: center;
+    font-size: 75px;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    padding-top: 20px;
+}
+
+p {
+    text-align: center;
+}
+body {
+    background-color: #00001a;
+    color: white;
+    font-family: 'Chivo', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#search-tips{
+    font-size: 25px;
+    background-color: #cc66ff;
+    border: 2px solid white;
+}
+
+#source {
+    color: white;
+    background-color: #cc66ff;
+    border: 2px solid white;
+}
+
+#source-link {
+    color: white;
+}
+
+.table {
+    color: white; 
+    text-align: center;
+    background-color: gray;
+    border: 2px solid white;
+
+}
+
+form {
+    background-color: gray;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 20px;
+    color: white;
+   
+}
+
+section {
+    justify-content: center;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    border: 2px solid white;
+    margin: 10px;
+    background-color: gray;
+}
+
+footer {
+    text-align: center;
+    font-size: 16px;
+}

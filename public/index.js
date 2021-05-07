@@ -63,9 +63,7 @@ function fetchResults(e){
     const earthDate = document.querySelector(".form-control")
     searchUrl = baseUrl + 'rovers/' + rover + '/' + "photos?earth_date=" + earthDate.value + "&api_key=" + apiKey
     fetch (searchUrl)
-    
     .then (res => res.json())
-   
     .then(json => displayPhotos(json))
 }
 
@@ -73,7 +71,12 @@ function displayPhotos(json){
     while (section.firstChild) {
         section.removeChild(section.firstChild);
     }
-    let photos = json.photos
+    let photos = json.photos;
+    if (photos.length === 0){
+        let message = document.createElement('p');
+        message.innerText = "No photos found for these parameters. Please review search tips above and try again."
+        section.appendChild(message)
+    }else
     {for(let i = 0; i < photos.length; i++){
        
     let image = document.createElement('img');
@@ -83,42 +86,3 @@ function displayPhotos(json){
 }
 
 
-
-
-
-    //     else {
-    //         console.log("error")}
-        // let div = document.createElement('div');
-        // div.innerText = "No photos available for this date";
-        // section.appendChild(div)}
-  
-    // }
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let start = "2021-04-07"
-// let end = "2021-04-08"
-
-// const url = "https://api.nasa.gov/neo/rest/v1/"
-
-// const query = `feed?start_date=${start}&end_date=${end}&api_key=`
-
-
-// const url = "https://images-api.nasa.gov/search?q="
-// let query = "apollo"
-
-// fetch (url + query)
-// .then (res=> res.json())
-// .then (json => {console.log(json.collection.items[0])})
